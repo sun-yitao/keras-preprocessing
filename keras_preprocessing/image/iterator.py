@@ -166,7 +166,10 @@ class BatchFromFilesMixin():
                 "hamming" are also supported. By default, "nearest" is used.
         """
         self.image_data_generator = image_data_generator
-        self.target_size = tuple(target_size)
+        if not target_size:
+            self.target_size = tuple(target_size)
+            if None in self.target_size:
+                self.target_size = None
         if color_mode not in {'rgb', 'rgba', 'grayscale'}:
             raise ValueError('Invalid color mode:', color_mode,
                              '; expected "rgb", "rgba", or "grayscale".')
