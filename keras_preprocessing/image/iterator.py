@@ -166,7 +166,7 @@ class BatchFromFilesMixin():
                 "hamming" are also supported. By default, "nearest" is used.
         """
         self.image_data_generator = image_data_generator
-        if not target_size:
+        if target_size is not None:
             self.target_size = tuple(target_size)
             if None in self.target_size:
                 self.target_size = None
