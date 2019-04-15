@@ -167,7 +167,7 @@ class BatchFromFilesMixin():
         """
         self.image_data_generator = image_data_generator
         if target_size is None or None in target_size:
-            self.target_size = None
+            self.target_size = (None, None)
         else:
             self.target_size = tuple(target_size)
         if color_mode not in {'rgb', 'rgba', 'grayscale'}:
